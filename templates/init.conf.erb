@@ -1,0 +1,27 @@
+<% daemon = @init_config_file.reverse.split('-',2).collect(&:reverse).reverse.first %>
+description "Carbon service for Graphite"
+
+start on (net-device-up
+          and local-filesystems
+          and runlevel [2345])
+stop on runlevel [!2345]
+
+respawn
+respawn limit 99 5
+
+env GRAPHITE_STORAGE_DIR=/opt/graphite/storage/
+env GRAPHITE_CONF_DIR=/opt/graphite/conf/
+env LOGFILE=/opt/graphite/storage/log/<%= daemon %>/<%= @init_config_file %>/console.log
+
+pre-start script
+    LOGDIR=`dirname $LOGFILE`
+    [ -d $LOGDIR ] || mkdir -p $LOGDIR
+    chown -R <%= @user %> $LOGDIR
+end script
+
+script 
+	ulimit -n 65000
+	exec /opt/graphite/bin/<%= daemon %>.py \
+       --debug \
+       --instance <%= @name %> start >> $LOGFILE 2>&1
+end script

@@ -1,0 +1,11 @@
+name          'puppet-graphite'
+version       '0.1'
+author        'Boyan Dimitrov'
+license       'Apache License, Version 2.0'
+summary       'Module to manage the Graphite monitoring tool'
+project_page  'https://github.com/boyand/puppet-graphite'
+
+dependency    'puppetlabs/apache', '4.1.0'
+dependency    'puppetlabs/stdlib', '0.8.0'
+dependency    'stankevich/python', '>= 1.1.4'
+dependency    'puppetlabs/concat', '>= 1.0.0'

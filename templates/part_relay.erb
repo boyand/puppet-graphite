@@ -1,0 +1,25 @@
+[relay:<%= @name %>]
+USER                            = <%= @user %>
+LINE_RECEIVER_INTERFACE         = <%= @line_receiver_interface %>
+LINE_RECEIVER_PORT              = <%= @line_receiver_port %>
+PICKLE_RECEIVER_INTERFACE       = <%= @pickle_receiver_interface %>
+PICKLE_RECEIVER_PORT            = <%= @pickle_receiver_port %>
+RELAY_METHOD                    = <%= @relay_method %>
+<% if @destinations.is_a?(Array) && @carboncache_instances.is_a?(Array)  -%>
+<% @cluster = []
+    @destinations.each do |x| 
+        @carboncache_instances.each do |y|
+             @cluster << "#{x}:#{y}"
+        end
+    end 
+%>
+DESTINATIONS                    = <%= @cluster.to_a.sort.join(', ')  %>
+<% else -%>
+DESTINATIONS                    = <%= @destinations %>
+<% end -%>
+REPLICATION_FACTOR              = <%= @replication_factor %>
+MAX_DATAPOINTS_PER_MESSAGE      = <%= @max_datapoints_per_message %>
+MAX_QUEUE_SIZE                  = <%= @max_queue_size %>
+USE_FLOW_CONTROL                = <%= @use_flow_control %>
+USE_WHITELIST                   = <%= @use_whitelist %>
+LOG_LISTENER_CONNECTIONS        = <%= @log_listener_connections %>
