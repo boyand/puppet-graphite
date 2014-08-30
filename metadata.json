@@ -5,17 +5,6 @@
   "summary": "Module for managing Graphite single-server installations, clusters and federations",
   "license": "Licensed under (Apache 2.0)",
   "source": "https://github.com/boyand/puppet-graphite",
-  "operatingsystem_support": [
-    {
-      "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [
-        "10.04",
-        "12.04",
-        "14.04"
-      ]
-    }
-  ],
-  "project_page": "(https://forge.puppetlabs.com/boyand/graphite)",
   "tags": [
     "monitoring",
     "graphite",
@@ -27,23 +16,34 @@
     "cache",
     "instrumentation"
   ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "10.04",
+        "12.04",
+        "14.04"
+      ]
+    }
+  ],
+  "project_page": "(https://forge.puppetlabs.com/boyand/graphite)",
   "issues_url": "https://github.com/boyand/puppet-graphite/issues",
   "dependencies": [
     {
-      "version_requirement": ">=1.0.0",
-      "name": "puppetlabs/apache"
+      "name": "puppetlabs/apache",
+      "version_requirement": ">=1.0.0"
     },
     {
-      "version_requirement": ">= 4.1.0",
-      "name": "puppetlabs/stdlib"
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.0.0"
     },
     {
-      "version_requirement": ">= 1.0.0",
-      "name": "puppetlabs/concat"
+      "name": "puppetlabs/concat",
+      "version_requirement": ">= 1.0.0"
     },
     {
-      "version_requirement": ">= 1.1.6",
-      "name": "stankevich/python"
+      "name": "stankevich/python",
+      "version_requirement": ">= 1.7.1"
     }
   ]
 }
