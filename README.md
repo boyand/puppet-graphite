@@ -1,9 +1,9 @@
-A Puppet module for managing the installation of
+A Puppet module for managing the installation, clustering and ferderation of
 [Graphite](http://graphite.wikidot.com/).
 
-# Usage
+## Usage
 
-## Single server deployment with just one carbon cache
+### Single server deployment with just one carbon cache
 
 ```
  class { '::graphite':
@@ -13,7 +13,7 @@ A Puppet module for managing the installation of
   graphite::cache { 'a':}
 ```
 
-## Multi server deployment with several carbon relays and caches and local memcache on each node
+### Multi server deployment with several carbon relays and caches and local memcache on each node
 
 ```
  class { '::graphite':
@@ -55,7 +55,6 @@ A Puppet module for managing the installation of
     replication_factor       => '2',
     destinations             => ['10.0.0.1','10.0.0.2'],
     carboncache_instances    => ['2004:a','2104:b','2204:c','2304:d'],
-    log_listener_connections => False
   }
 ```
 
@@ -65,5 +64,5 @@ There are many existing graphite modules that focus on particular default instal
 
 This module is under development and currently has been tested only on Ubuntu. Nevertheless porting it to another distribution should be trivial.
 
-At the moment this module can bring up arbitrary number of carbon caches and relays and federate the graphite dashboard. It is compatible with graphite 0.9.x
+At the moment this module can bring up arbitrary number of carbon caches and relays and federate the graphite dashboard. It is compatible with graphite 0.9.x and puppet < 4.0
 
