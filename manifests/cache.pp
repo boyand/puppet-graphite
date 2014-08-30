@@ -36,7 +36,7 @@
 #    cache_query_port     => '7002',
 #  }
 define graphite::cache(
-  $ensure                     = 'present',
+  $ensure                     = present,
   $user                       = 'www-data',
   $max_cache_size             = '1000',
   $max_updates_per_second     = '5000',

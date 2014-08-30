@@ -10,9 +10,7 @@ A Puppet module for managing the installation of
     port                 => 8888,
   }
 
-  graphite::cache { 'a':
-    ensure               => present,
-  }
+  graphite::cache { 'a':}
 ```
 
 ## Multi server deployment with several carbon relays and caches and local memcache on each node
@@ -26,28 +24,24 @@ A Puppet module for managing the installation of
   }
 
   graphite::cache { 'a':
-    ensure               => present,
     pickle_receiver_port => '2004',
     line_receiver_port   => '2003',
     cache_query_port     => '7002'
   }
 
   graphite::cache { 'b':
-    ensure               => present,
     pickle_receiver_port => '2104',
     line_receiver_port   => '2103',
     cache_query_port     => '7102',
   }
 
   graphite::cache { 'c':
-    ensure               => present,
     pickle_receiver_port => '2204',
     line_receiver_port   => '2203',
     cache_query_port     => '7202',
   }
 
   graphite::cache { 'd':
-    ensure               => present,
     pickle_receiver_port => '2304',
     line_receiver_port   => '2303',
     cache_query_port     => '7302',
@@ -56,7 +50,6 @@ A Puppet module for managing the installation of
   # destinations - lists the ip addresses of all nodes in the cluster running carbon caches
   # carboncache_instances - lists the ports and instance names of the carbon caches on a single instance (We assume that all nodes are configured the same)
   graphite::relay { 'a':
-    ensure                   => present,
     pickle_receiver_port     => '2014',
     line_receiver_port       => '2013',
     replication_factor       => '2',

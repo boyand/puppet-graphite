@@ -36,7 +36,7 @@
 #    replication_factor   => '2'
 #  }
 define graphite::relay(
-  $ensure                     = 'present',
+  $ensure                     = present,
   $user                       = 'www-data',
   $line_receiver_interface    = '0.0.0.0',
   $line_receiver_port         = '2013',
